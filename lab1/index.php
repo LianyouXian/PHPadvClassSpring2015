@@ -5,6 +5,12 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
+    <style>
+        body 
+        {
+        background-color:lightcyan;
+        }
+    </style>
     <body>
            
     <?php
@@ -25,7 +31,7 @@
         
         if ( $util->isPostRequest() ) //if utillity is a post repuest
         {
-    
+            $errors = array();
             if ( !$validator->emailTypeIsValid($emailType) ) //if email not valid
             {
             $errors[] = 'Email is not valid';//tell the user that the email is not valid
@@ -53,14 +59,15 @@
 
        
     ?>
-     <!-- set up the form-->   
+     <!-- set up the form--> 
+    <center>
     <h3>Add Email type</h3>
     <form action="#" method="post">
         <label>Email:</label> 
         <input type="text" name="emailtype" value="<?php echo $emailType; ?>" placeholder="" />
         <input type="submit" value="Submit" />
     </form>
-              
+            
     <?php 
     
     $stmt = $db->prepare("SELECT * FROM emailtype where active = 1");
@@ -70,7 +77,7 @@
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($results as $value)
         {
-        echo '<p>', $value['emailtype'], '</p>';
+        echo '<strong><p>', $value['emailtype'], '</p></strong>';
         }
         } 
     else 
@@ -79,7 +86,7 @@
     }
     
     ?>
-         
+    </center>  
          
          
     </body>
