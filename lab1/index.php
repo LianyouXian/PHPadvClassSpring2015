@@ -8,93 +8,77 @@
     <body>
         
         
-        <?php
-       
-        /* Start by creating the classes and files you need
-         * 
-         */
-$util = new Util();
-$validator = new Validator();
-/*
- * When dealing with forms always collect the data before trying to validate
- * 
- * When getting values from $_POST or $_GET use filter_input
- */
-$phoneType = filter_input(INPUT_POST, 'phonetype');
-// We use errors to add issues to notify the user
-$errors = array();
-/*
- * We setup this config to get a standard database setup for the page
- */
-$dbConfig = array(
+    <?php
+        $util = new Util(); //create new utillity
+        $validator = new Validator(); //create new validator
+        $emailType = filter_input(INPUT_POST, 'emailtype');
+        
+        //connect to database
+        $dbConfig = array
+        (
         "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=PHPadvClassSpring2015',
         "DB_USER"=>'root',
         "DB_PASSWORD"=>''
         );
-$pdo = new DB($dbConfig);
-$db = $pdo->getDB();
-/*
- * we utilize our classes to have less code on the page
- * 
- */
-if ( $util->isPostRequest() ) {
-    // we validate only if a post has been made
-    if ( !$validator->phoneTypeIsValid($phoneType) ) {
-        $errors[] = 'Phone type is not valid';
-    }
+        
+        $pdo = new DB($dbConfig);
+        $db = $pdo->getDB();
+        
+        if ( $util->isPostRequest() ) //if utillity is a post repuest
+        {
+    
+            if ( !$validator->emailTypeIsValid($emailType) ) //if email not valid
+            {
+            $errors[] = 'Email is not valid';//tell the user that the email is not valid
+            }
+    
+            if ( count($errors) > 0 ) //if it have more than one error. show all of them
+            {
+                foreach ($errors as $value) 
+                {
+                echo '<p>',$value,'</p>';
+                }
+            }
+            else //else if there are no error, then insert into database
+            {
+                $stmt = $db->prepare("INSERT INTO emailtype SET emailtype = :emailtype");  
+                $values = array(":emailtype"=>$emailType);
+                if ( $stmt->execute($values) && $stmt->rowCount() > 0 ) 
+                {
+                echo 'Email Added';
+                }       
+            }
     
     
-    
-    
-    // if there are errors display them
-    if ( count($errors) > 0 ) {
-        foreach ($errors as $value) {
-            echo '<p>',$value,'</p>';
         }
-    } else {
-        //if no errors, save to to database.
-        $stmt = $db->prepare("INSERT INTO phonetype SET phonetype = :phonetype");  
-        $values = array(":phonetype"=>$phoneType);
-        if ( $stmt->execute($values) && $stmt->rowCount() > 0 ) {
-            echo 'Phone Added';
-        }       
-    }
-    
-    
-}
-    
-        
-        
+
        
-        ?>
-        
-         <h3>Add phone type</h3>
-        <form action="#" method="post">
-            <label>Phone Type:</label> 
-            <input type="text" name="phonetype" value="<?php echo $phoneType; ?>" placeholder="" />
-            <input type="submit" value="Submit" />
-        </form>
-         
-         
+    ?>
+     <!-- set up the form-->   
+    <h3>Add Email type</h3>
+    <form action="#" method="post">
+        <label>Email:</label> 
+        <input type="text" name="emailtype" value="<?php echo $emailType; ?>" placeholder="" />
+        <input type="submit" value="Submit" />
+    </form>
+              
     <?php 
-       
-    // lets get the database values and display them
-    $stmt = $db->prepare("SELECT * FROM phonetype where active = 1");
-    if ($stmt->execute() && $stmt->rowCount() > 0) {
-        /*
-         * There is fetchAll which gets all the values and
-         * fetch which gets one row.
-         */
+    
+    $stmt = $db->prepare("SELECT * FROM emailtype where active = 1");
+    
+    if ($stmt->execute() && $stmt->rowCount() > 0) 
+        {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        // results returns as a assoc array
-        // you can run the next line to see the variable
-        // var_dump($results)
-        foreach ($results as $value) {
-            echo '<p>', $value['phonetype'], '</p>';
+        foreach ($results as $value)
+        {
+        echo '<p>', $value['emailtype'], '</p>';
         }
-    } else {
-        echo '<p>No Data</p>';
+        } 
+    else 
+    {
+    echo '<p>No Data</p>';
     }
+    
     ?>
          
          

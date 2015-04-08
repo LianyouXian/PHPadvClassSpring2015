@@ -11,6 +11,7 @@ class Validator {
     public function emailIsValid($email) {
         return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
+    
     /**
      * A method to check if the email type is valid.
      *
