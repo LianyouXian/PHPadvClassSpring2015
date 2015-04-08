@@ -6,8 +6,7 @@
         <title></title>
     </head>
     <body>
-        
-        
+           
     <?php
         $util = new Util(); //create new utillity
         $validator = new Validator(); //create new validator

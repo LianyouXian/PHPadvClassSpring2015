@@ -23,7 +23,6 @@ class Validator {
         return ( is_string($email) && !empty($email) );
     }
     
-    
     /**
      * A method to check if a phone number is valid.
      *

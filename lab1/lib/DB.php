@@ -5,7 +5,6 @@ class DB {
     protected $db = null;
     private $dbConfig = array();
      
-     
     /**
     * The contructor requires.
     *    

@@ -1,7 +1,6 @@
 <?php
 class Util {
     
-     
     /**
     * A method to check if a Post request has been made.
     *    
