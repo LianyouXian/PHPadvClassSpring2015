@@ -16,7 +16,7 @@
     <?php
         $util = new Util(); //create new utillity
         $validator = new Validator(); //create new validator
-        $emailType = filter_input(INPUT_POST, 'emailtype');
+        $emailType = filter_input(INPUT_POST, 'emailtype'); //filtering the input
         
         //connect to database
         $dbConfig = array
@@ -50,7 +50,7 @@
                 $values = array(":emailtype"=>$emailType);
                 if ( $stmt->execute($values) && $stmt->rowCount() > 0 ) 
                 {
-                echo 'Email Added';
+                echo 'Email Added';//when email is added display the message that email is added.
                 }       
             }
     
@@ -70,19 +70,19 @@
             
     <?php 
     
-    $stmt = $db->prepare("SELECT * FROM emailtype where active = 1");
+    $stmt = $db->prepare("SELECT * FROM emailtype where active = 1"); //select the data in the database and display when enter the page.
     
     if ($stmt->execute() && $stmt->rowCount() > 0) 
         {
         $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
         foreach ($results as $value)
         {
-        echo '<strong><p>', $value['emailtype'], '</p></strong>';
+        echo '<strong><p>', $value['emailtype'], '</p></strong>';//wrap the output in strong to make it bold.
         }
         } 
     else 
     {
-    echo '<p>No Data</p>';
+    echo '<p>No Data</p>';//if there are no data display no data.
     }
     
     ?>
