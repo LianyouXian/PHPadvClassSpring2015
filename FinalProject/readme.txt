@@ -1,4 +1,3 @@
-Lianyou Xian	
 Project Proposal
 I want to create a project use for my video game, tracking what video game I played, the name of the video game, what system what the game on, how much does it cost when I first bought it, and the price it change over time, a rating for the game, and a comment field that I can put comments. The project should take about 8 days to be finish.
 Day1: create a prototype of MVC for the web page. /index page and everything.
