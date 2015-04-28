@@ -75,7 +75,7 @@
          
          <?php         
              
-            $emailTypes = $EmailTypeDAO->getAllRows();
+            $emailTypes = $emailTypeDAO->getAllRows();
             
 
             foreach ($emailTypes as $value) 

@@ -75,7 +75,6 @@
         
         ?>
         
-        
          <h3>Add Email</h3>
         <form action="#" method="post">
             <label>Email:</label>            
@@ -110,8 +109,6 @@
                 <tr>
                     <th>Email</th>
                     <th>Type</th>
-                    <th>Last Updated</th>
-                    <th>Logged</th>
                     <th>Active</th>
                 </tr>
          <?php 

@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Validator Class
+ * 
+ * A collection of functions used to validate data
+ *
+ * @author Gabriel Forti
+ */
 class Validator {
     /**
      * A method to check if an email is valid.
@@ -9,7 +15,7 @@ class Validator {
      * @return boolean
      */
     public function emailIsValid($email) {
-        return ( is_string($email) && !empty($email)&& preg_match("^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$", $email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
+        return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
     /**
      * A method to check if the email type is valid.
