@@ -40,10 +40,10 @@
                      $errors[] = 'Invalid Active';
                 }
                 
-                if ( empty($emailTypeid) ) 
+                /*if ( empty($emailTypeid) ) 
                 {
                      $errors[] = 'email type is invalid';
-                }
+                }*/
                 
                 if ( count($errors) > 0 ) 
                 {
@@ -58,7 +58,7 @@
                     
                     $emailModel = new EmailModel();
                     
-                    $EmailModel->map(filter_input_array(INPUT_POST));
+                    $emailModel->map(filter_input_array(INPUT_POST));
                     
                    // var_dump($phonetypeModel);
                     if ( $emailDAO->save($emailModel) ) 

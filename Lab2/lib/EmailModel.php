@@ -44,19 +44,19 @@ class EmailModel implements IModel {
         $this->email = $email;
     }
     
-    function setPhonetypeid($phonetypeid) 
+    function setEmailtypeid($emailtypeid) 
     {
-        $this->phonetypeid = $phonetypeid;
+        $this->emailtypeid = $emailtypeid;
     }
     
-    function setPhonetype($phonetype) 
+    function setEmailtype($emailtype) 
     {
-        $this->phonetype = $phonetype;
+        $this->emailtype = $emailtype;
     }
     
-    function setPhonetypeactive($phonetypeactive) 
+    function setEmailtypeactive($emailtypeactive) 
     {
-        $this->phonetypeactive = $phonetypeactive;
+        $this->emailtypeactive = $emailtypeactive;
     }
 
 
