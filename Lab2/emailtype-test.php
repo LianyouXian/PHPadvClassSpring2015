@@ -50,7 +50,7 @@
                     $emailtypeModel->setActive($active);
                     $emailtypeModel->setEmailtype($emailType);
                     
-                   // var_dump($phonetypeModel);
+                   // var_dump($emailtypeModel);
                     if ( $emailTypeDAO->save($emailtypeModel) ) 
                     {
                         echo 'New Email added';

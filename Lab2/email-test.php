@@ -18,7 +18,7 @@
         $db = $pdo->getDB();
         
         $email = filter_input(INPUT_POST, 'email');
-        $phoneTypeid = filter_input(INPUT_POST, 'emailtypeid');
+        $emailTypeid = filter_input(INPUT_POST, 'emailtypeid');
         $active = filter_input(INPUT_POST, 'active');
         
         $emailTypeDAO = new EmailTypeDAO($db);
@@ -67,7 +67,6 @@
                     } 
                     else 
                     {
-                        
                         echo 'sorry,your email can not be added in this time';
                     }
                     

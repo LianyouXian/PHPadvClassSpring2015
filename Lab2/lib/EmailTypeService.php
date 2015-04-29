@@ -77,7 +77,7 @@ class EmailTypeService {
         return ( count($this->_errors) > 0 );        
     }
     
-    public function displayPhones() 
+    public function displayEmails() 
     {        
         $stmt = $this->_DB->prepare("SELECT * FROM emailtype");
         if ($stmt->execute() && $stmt->rowCount() > 0) 
