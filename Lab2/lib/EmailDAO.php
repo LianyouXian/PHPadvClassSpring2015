@@ -44,12 +44,13 @@ class EmailDAO implements IDAO {
     }
     
     
-    public function save(IModel $model) {
+    public function save(IModel $model) 
+    {
                  
          $db = $this->getDB();
          
          $values = array( ":email" => $model->getEmail(),
-                          ":active" => $model->getActive(),
+                          ":active" => $model->getEmailtypeactive(),
                           ":emailtypeid" => $model->getEmailtypeid(),
              
                     );

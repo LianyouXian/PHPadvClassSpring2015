@@ -60,13 +60,14 @@
                     
                     $emailModel->map(filter_input_array(INPUT_POST));
                     
-                   // var_dump($phonetypeModel);
+                   //var_dump($emailtypeModel);
                     if ( $emailDAO->save($emailModel) ) 
                     {
                         echo 'New Email is Added';
                     } 
                     else 
                     {
+                        
                         echo 'sorry,your email can not be added in this time';
                     }
                     
