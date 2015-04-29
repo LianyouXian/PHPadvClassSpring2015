@@ -26,6 +26,7 @@ class DB {
         {
             $config = $this->getDbConfig();
             $this->db = new PDO($config['DB_DNS'], $config['DB_USER'], $config['DB_PASSWORD']);
+            
         } 
         catch (Exception $ex) 
         {
@@ -41,4 +42,4 @@ class DB {
     
     
 }
-?>
+

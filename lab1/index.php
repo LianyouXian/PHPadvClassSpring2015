@@ -16,7 +16,8 @@
     <?php
         $util = new Util(); //create new utillity
         $validator = new Validator(); //create new validator
-        $sendEmailType = new emailTypeDB();
+        
+        $sendEmailType = new emailTypeDB();//get the class from emailTypeDB
         $emailType = filter_input(INPUT_POST, 'emailtype'); //filtering the input
         
         $errors = array(); //making empty error string to contain future errors
@@ -48,7 +49,7 @@
     <center>
     <h3>Add Email type</h3>
     <form action="#" method="post">
-        <label>Email:</label> 
+        <label>Email Type:</label> 
         <input type="text" name="emailtype" value="<?php echo $emailType; ?>" placeholder="" />
         <input type="submit" value="Submit" />
     </form>

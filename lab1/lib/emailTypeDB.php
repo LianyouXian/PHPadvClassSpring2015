@@ -11,7 +11,7 @@ class emailTypeDB
     {
         $dbConfig = array
         (
-        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=PHPadvClassSpring2015',
+        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=phpadvclassspring2015',
         "DB_USER"=>'root',
         "DB_PASSWORD"=>''
         );
@@ -33,14 +33,13 @@ class emailTypeDB
     {
         $dbConfig = array
         (
-        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=PHPadvClassSpring2015',
+        "DB_DNS"=>'mysql:host=localhost;port=3306;dbname=phpadvclassspring2015',
         "DB_USER"=>'root',
         "DB_PASSWORD"=>''
         );
         
         $pdo = new DB($dbConfig);
         $db = $pdo->getDB();
-        
         $stmt = $db->prepare("SELECT * FROM emailtype"); //select the data in the database and display when enter the page.
     
         if ($stmt->execute() && $stmt->rowCount() > 0) 
