@@ -72,7 +72,13 @@
             <input type="submit" value="Submit" />
         </form>
          
-         
+         <table border="1" cellpadding="5">
+            <tr>
+                <th>Type</th>
+                <th>Active</th>
+                <th>Delete</th>
+                <th>Update</th>
+             </tr>
          <?php         
              
             $emailTypes = $emailTypeDAO->getAllRows();
@@ -80,12 +86,20 @@
 
             foreach ($emailTypes as $value) 
             {
+                echo"<tr><td>";
                 echo '<strong><p>',$value->getEmailtype(),'</p></strong>';
+                echo '<td><strong><p>',$value->getActive(),'</p></strong></td>';
+                echo '<td><a href="DeleteEmailtype.php?emailtypeid=' . $value->getEmailtypeid() . '">Delete</a></td>  ';
+                echo '<td><a href="UpdateEmailType.php?emailtypeid=' . $value->getEmailtypeid() . '">Update</a></td>  ';
+                echo'</tr>';
             }
             
 
          ?>
          
-         
+         </table>
+         <?php
+       echo '<p><a href="AddEmail.php">Add Email</a></p>';
+        ?>
     </body>
 </html>

@@ -110,15 +110,26 @@
                     <th>Email</th>
                     <th>Type</th>
                     <th>Active</th>
+                    <th>Logged</th>
+                    <th>Active</th>
+                    <th>Update</th>
+                    <th>Delete</th>
                 </tr>
          <?php 
             $emails = $emailDAO->getAllRows(); 
             foreach ($emails as $value) 
             {
                 echo '<tr><td>',$value->getEmail(),'</td><td>',$value->getEmailtype(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
-                echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td></tr>' ;
+                echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>' ;
+                echo '<td><a href="UpdateEmail.php?emailid=' . $value->getEmailid() . '">Update</a></td>  ';
+                echo '<td><a href="DeleteEmail.php?emailid=' . $value->getEmailid() . '">Delete</a></td>  ';
+                echo'</tr>';
+                
             }
          ?>
             </table>
+         <?php
+       echo '<p><a href="AddEmailType.php">Add Email Type</a></p>';
+        ?>
     </body>
 </html>

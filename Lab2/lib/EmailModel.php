@@ -7,6 +7,9 @@ class EmailModel implements IModel {
     private $emailtypeid;
     private $emailtype;
     private $emailtypeactive;
+    private $logged;
+    private $lastupdated;
+    private $active;
     
     function getEmailid() 
     {
@@ -31,6 +34,21 @@ class EmailModel implements IModel {
     function getEmailtypeactive() 
     {
         return $this->emailtypeactive;
+    }
+    
+    function getLogged() 
+    {
+        return $this->logged;
+    }
+
+    function getLastupdated() 
+    {
+        return $this->lastupdated;
+    }
+
+    function getActive() 
+    {
+        return $this->active;
     }
     
     
@@ -59,6 +77,20 @@ class EmailModel implements IModel {
         $this->emailtypeactive = $emailtypeactive;
     }
 
+    function setLogged($logged) 
+    {
+        $this->logged = $logged;
+    }
+
+    function setLastupdated($lastupdated) 
+    {
+        $this->lastupdated = $lastupdated;
+    }
+
+    function setActive($active) 
+    {
+        $this->active = $active;
+    }
 
     public function reset() 
             {
@@ -67,6 +99,9 @@ class EmailModel implements IModel {
         $this->setEmailtypeid('');
         $this->setEmailtype('');
         $this->setEmailtypeactive('');
+        $this->setLogged('');
+        $this->setLastupdated('');
+        $this->setActive('');
         return $this;
     }
     
@@ -97,6 +132,21 @@ class EmailModel implements IModel {
         if ( array_key_exists('emailtypeactive', $values) ) 
         {
             $this->setEmailtypeactive($values['emailtypeactive']);
+        }
+        
+        if ( array_key_exists('logged', $values) ) 
+                {
+            $this->setLogged($values['logged']);
+        }
+        
+        if ( array_key_exists('lastupdated', $values) ) 
+                {
+            $this->setLastupdated($values['lastupdated']);
+        }
+        
+        if ( array_key_exists('active', $values) ) 
+                {
+            $this->setActive($values['active']);
         }
         return $this;
     }

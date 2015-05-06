@@ -31,7 +31,9 @@
             }
             
             
-             echo '<p><a href="',filter_input(INPUT_SERVER, 'HTTP_REFERER'),'">Go back</a></p>';
+            echo '<p><a href="',filter_input(INPUT_SERVER, 'HTTP_REFERER'),'">back</a></p>';
+            echo '<p><a href="AddEmail.php">Add Email</a></p>';
+            echo '<p><a href="AddEmailType.php">Add Email Type</a></p>';
         
         ?>
     </body>
