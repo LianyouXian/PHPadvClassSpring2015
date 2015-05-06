@@ -22,11 +22,12 @@
         $emailTypeDAO = new EmailTypeDAO($db);
         $emailtypeModel = new EmailTypeModel();
          
-        if ( $util->isPostRequest() ) {
-            
-            $emailtypeModel->map(filter_input_array(INPUT_POST));
-                       
-        } else {
+        if ( $util->isPostRequest() ) 
+        {
+            $emailtypeModel->map(filter_input_array(INPUT_POST));             
+        } 
+        else 
+        {
             $emailtypeid = filter_input(INPUT_GET, 'emailtypeid');
             $emailtypeModel = $emailTypeDAO->getById($emailtypeid);
         }
@@ -39,11 +40,10 @@
         
         $emailTypeService = new EmailTypeService($db, $util, $validator, $emailTypeDAO, $emailtypeModel);
         
-        if ( $emailTypeDAO->idExisit($emailtypeModel->getEmailtypeid()) ) {
+        if ( $emailTypeDAO->idExisit($emailtypeModel->getEmailtypeid()) ) 
+        {
             $emailTypeService->saveForm();
         }
-        
-        
         ?>
         
         
@@ -68,7 +68,7 @@
             {
                 echo"<tr><td>";
                 echo '<strong><p>',$value->getEmailtype(),'</p></strong>';
-                echo '<td><strong><p>',$value->getActive(),'</p></strong></td>';
+                echo '<td><strong><p>',($value->getActive() == 1 ? 'Yes' : 'No'),'</p></strong></td>';
                 echo '<td><a href="DeleteEmailtype.php?emailtypeid=' . $value->getEmailtypeid() . '">Delete</a></td>  ';
                 echo '<td><a href="UpdateEmailType.php?emailtypeid=' . $value->getEmailtypeid() . '">Update</a></td>  ';
                 echo'</tr>';
