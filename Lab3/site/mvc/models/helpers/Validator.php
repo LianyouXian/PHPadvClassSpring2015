@@ -25,6 +25,9 @@ class Validator implements IService {
         return ( is_string($email) && !empty($email) && filter_var($email, FILTER_VALIDATE_EMAIL) !== false );
     }
     
+   public function emailTypeIsValid($email) {
+        return ( is_string($email) && !empty($email) );
+    }
     /**
      * A method to check if a phone number is valid.
      *
