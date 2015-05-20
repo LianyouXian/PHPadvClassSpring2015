@@ -90,5 +90,8 @@
 
          ?>
             
+         <a href="emailtype">Email Type</a>
+        <br />
+        <a href="email">Email</a>
     </body>
 </html>

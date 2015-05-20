@@ -6,7 +6,6 @@
     </head>
     <body>
         <?php
-        // put your code here
                 
         if ( $scope->util->isPostRequest() ) 
         {
@@ -96,6 +95,6 @@
            
 
          ?>
-            
+            <a href="emailtype">Email Type</a>
     </body>
 </html>

@@ -74,9 +74,8 @@ and open the template in the editor.
         }
          
          
-         
-         
-         
          ?>
+        <a href="email">Email</a>
+         
     </body>
 </html>

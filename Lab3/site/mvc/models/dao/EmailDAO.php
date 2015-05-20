@@ -1,9 +1,4 @@
 <?php
-/**
- * Description of PhoneTypeDAO
- *
- * @author User
- */
 
 namespace App\models\services;
 
@@ -12,20 +7,22 @@ use App\models\interfaces\IModel;
 use App\models\interfaces\ILogging;
 use \PDO;
 
-class PhoneTypeDAO extends BaseDAO implements IDAO {
-    
-    public function __construct( PDO $db, IModel $model, ILogging $log ) {        
+
+class EmailDAO extends BaseDAO implements IDAO {
+        
+     public function __construct( PDO $db, IModel $model, ILogging $log ) {        
         $this->setDB($db);
         $this->setModel($model);
         $this->setLog($log);
     }
-          
+    
+    
     public function idExisit($id) {
-        
+                
         $db = $this->getDB();
-        $stmt = $db->prepare("SELECT * FROM phonetype WHERE phonetypeid = :phonetypeid");
+        $stmt = $db->prepare("SELECT emailid FROM email WHERE emailid = :emailid");
          
-        if ( $stmt->execute(array(':phonetypeid' => $id)) && $stmt->rowCount() > 0 ) {
+        if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
             return true;
         }
          return false;
@@ -37,14 +34,17 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
          
          $db = $this->getDB();
          
-         $stmt = $db->prepare("SELECT * FROM phonetype WHERE phonetypeid = :phonetypeid");
+         $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailtypeid, emailtype.emailtype, emailtype.active as emailtypeactive, email.logged, email.lastupdated, email.active"
+                 . " FROM email LEFT JOIN emailtype on email.emailtypeid = emailtype.emailtypeid WHERE emailid = :emailid");
          
-         if ( $stmt->execute(array(':phonetypeid' => $id)) && $stmt->rowCount() > 0 ) {
+        if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetch(PDO::FETCH_ASSOC);
-             $model->reset()->map($results);
-         }
+             $model->map($results);
+        }
          
-         return $model;
+        return $model;
+         
+        
     }
     
     
@@ -52,13 +52,14 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
                  
          $db = $this->getDB();
          
-         $binds = array( ":phonetype" => $model->getPhonetype(),
-                          ":active" => $model->getActive()
+         $binds = array( ":email" => $model->getEmail(),
+                         ":active" => $model->getActive(),
+                         ":emailtypeid" => $model->getEmailtypeid()             
                     );
                          
-         if ( !$this->idExisit($model->getPhonetypeid()) ) {
+         if ( !$this->idExisit($model->getEmailid()) ) {
              
-             $stmt = $db->prepare("INSERT INTO phonetype SET phonetype = :phonetype, active = :active");
+             $stmt = $db->prepare("INSERT INTO email SET email = :email, emailtypeid = :emailtypeid, active = :active, logged = now(), lastupdated = now()");
              
              if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
                 return true;
@@ -74,15 +75,16 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
                  
          $db = $this->getDB();
          
-         $binds = array( ":phonetype" => $model->getPhonetype(),
-                          ":active" => $model->getActive(),
-                          ":phonetypeid" => $model->getPhonetypeid()
+        $binds = array( ":email" => $model->getEmail(),
+                        ":active" => $model->getActive(),
+                        ":emailtypeid" => $model->getEmailtypeid(),
+                        ":emailid" => $model->getEmailid()
                     );
          
                 
-         if ( $this->idExisit($model->getPhonetypeid()) ) {
+         if ( $this->idExisit($model->getEmailid()) ) {
             
-             $stmt = $db->prepare("UPDATE phonetype SET phonetype = :phonetype, active = :active WHERE phonetypeid = :phonetypeid");
+             $stmt = $db->prepare("UPDATE email SET email = :email, emailtypeid = :emailtypeid,  active = :active, lastupdated = now() WHERE emailid = :emailid");
          
              if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
                 return true;
@@ -99,9 +101,9 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
     public function delete($id) {
           
         $db = $this->getDB();         
-        $stmt = $db->prepare("Delete FROM phonetype WHERE phonetypeid = :phonetypeid");
+        $stmt = $db->prepare("Delete FROM email WHERE emailid = :emailid");
 
-        if ( $stmt->execute(array(':phonetypeid' => $id)) && $stmt->rowCount() > 0 ) {
+        if ( $stmt->execute(array(':emailid' => $id)) && $stmt->rowCount() > 0 ) {
             return true;
         } else {
             $error = implode(",", $db->errorInfo());
@@ -115,7 +117,8 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
        $db = $this->getDB();
        $values = array();
        
-        $stmt = $db->prepare("SELECT * FROM phonetype");
+        $stmt = $db->prepare("SELECT email.emailid, email.email, email.emailtypeid, emailtype.emailtype, emailtype.active as emailtypeactive, email.logged, email.lastupdated, email.active"
+                 . " FROM email LEFT JOIN emailtype on email.emailtypeid = emailtype.emailtypeid");
         
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -130,7 +133,6 @@ class PhoneTypeDAO extends BaseDAO implements IDAO {
         $stmt->closeCursor();
          return $values;
     }
-     
     
-     
+    
 }

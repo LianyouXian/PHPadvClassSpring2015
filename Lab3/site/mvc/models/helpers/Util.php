@@ -1,11 +1,5 @@
 <?php
 
-/**
- * Description of Util
- *
- * @author GForti
- */
-
 namespace App\models\services;
 
 use App\models\interfaces\IService;
