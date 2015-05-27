@@ -125,7 +125,8 @@
                 echo '<td><a href="DeleteEmail.php?emailid=' . $value->getEmailid() . '">Delete</a></td>  ';
                 echo'</tr>';
                 
-            }
+            }      
+            
          ?>
             </table>
          <?php
