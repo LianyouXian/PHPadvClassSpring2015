@@ -42,7 +42,7 @@ abstract class BaseModel implements IModel {
          return $this;
     }
     
-    public function getAllPropteries() {
+    public function getAllProperties() {
         $class_methods = get_class_methods($this);
         $thisFunc = __FUNCTION__;
         $values = array();       

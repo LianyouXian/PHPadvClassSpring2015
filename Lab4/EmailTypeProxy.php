@@ -16,7 +16,7 @@
             }
         </style>
         
-        <h1>Rest API Demo</h1>
+        <h1>Rest API Email Type</h1>
         
         Verb/HTTP Method:<br />
         <select name="verb">
@@ -28,11 +28,11 @@
         <br />
         <br />
         Resource for endpoint:<br />
-        <input name="resource" value="emailtypes/" />
+        <input name="resource" value="emails/" />
          <br />
         <br />
         Data(optional):<br />        
-        <textarea name="data">emailtypeid=7&Emailtype=po56stest&Active=1</textarea>
+        <textarea name="data">emailtypeid=21&Emailtype=Primary&Active=1</textarea>
         <br />
         <br />
         <button>Make Call</button>

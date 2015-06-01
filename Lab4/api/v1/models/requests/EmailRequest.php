@@ -32,7 +32,7 @@ class EmailRequest implements IRequest {
         
         if ( $id > 0 ) { 
             if ( $this->service->idExist($model->getId()) ) {
-                return $this->service->read($model->getId())->getAllPropteries();
+                return $this->service->read($model->getId())->getAllProperties();
             } else {
                 throw new NoContentRequestException($id . ' ID does not exist');
             }
@@ -41,7 +41,7 @@ class EmailRequest implements IRequest {
         $values = array();
         
         foreach ($data as $value) {
-            $values[] = $value->getAllPropteries();
+            $values[] = $value->getAllProperties();
         }
         
         return $values;

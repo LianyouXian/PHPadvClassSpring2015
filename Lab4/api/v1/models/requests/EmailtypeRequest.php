@@ -53,6 +53,7 @@ class EmailtypeRequest implements IRequest {
     public function PUT( IModel $model ) {
         $id = intval($model->getId());
         $emailTypeModel = $this->service->getNewEmailTypeModel();
+        //Question:  What is going on here?
         $emailTypeModel->map($model->getRequestData());
         $emailTypeModel->setEmailtypeid($id);
         

@@ -194,7 +194,7 @@ class RestServer implements IService {
     }
     
     protected function getFullReponse() {
-        return $this->response->getAllPropteries();
+        return $this->response->getAllProperties();
     }
    
     protected function getFullJSONReponse() {
