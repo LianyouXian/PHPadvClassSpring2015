@@ -6,8 +6,8 @@
     </head>
     <body>
         
-        <a href="gametype.php">Game Type</a>
+        <a href="gametype">Game Type</a>
         <br />
-        <a href="game.php">Game</a>
+        <a href="game">Game</a>
     </body>
 </html>

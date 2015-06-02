@@ -40,11 +40,8 @@ class GameDAO extends BaseDAO implements IDAO {
         if ( $stmt->execute(array(':gameid' => $id)) && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetch(PDO::FETCH_ASSOC);
              $model->map($results);
-        }
-         
-        return $model;
-         
-        
+        }       
+        return $model;  
     }
     
     

@@ -37,8 +37,7 @@
          <br />
          
         <form action="#" method="post">
-            <input type="hidden" name="action" value="add" />
-            <input type="submit" value="ADD Page" /> 
+            game<link href="game.php" />
         </form>
          
          

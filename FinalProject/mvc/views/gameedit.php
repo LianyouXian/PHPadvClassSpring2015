@@ -31,10 +31,6 @@
             <label>Game:</label>            
             <input type="text" name="game" value="<?php echo $game; ?>" placeholder="" />
             <br /><br />
-            <label>Active:</label>
-            <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
-            
-            <br /><br />
             <label>Game Type:</label>
             <select name="gametypeid">
             <?php 
@@ -47,11 +43,30 @@
                 }
             ?>
             </select>
-            
-             <br /><br />
-             <input type="hidden"  name="gameid" value="<?php echo $gameid; ?>" />
-            <input type="hidden" name="action" value="update" />
+            <br /><br />
+            <label>High price:</label>
+            <input type="text" name="highprice" value="<?php echo $gameHighprice; ?>" />
+            <label>Low price:</label>
+            <input type="text" name="lowprice" value="<?php echo $gameLowprice; ?>" />
+            <br /><br />
+            <label>Comment:</label>            
+            <input type="text" name="gamecomment" value="<?php echo $gameComment; ?>" placeholder="" />
+            <br /><br />
+            <label>Active:</label>
+            <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
+            <br /><br />
+            <input type="hidden" name="action" value="create" />
             <input type="submit" value="Submit" />
+        </form>
+        
+        
+        
+         <br />
+         <br />
+         
+        <form action="#" method="post">
+            <input type="hidden" name="action" value="add" />
+            <input type="submit" value="ADD Page" /> 
         </form>
         
         

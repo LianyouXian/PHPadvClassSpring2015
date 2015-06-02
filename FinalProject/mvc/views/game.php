@@ -52,9 +52,9 @@
             </select>
             <br /><br />
             <label>High price:</label>
-            <input type="number" max="100" min="0" name="highprice" value="<?php echo $gameHighprice; ?>" />
+            <input type="text" name="highprice" value="<?php echo $gameHighprice; ?>" />
             <label>Low price:</label>
-            <input type="number" max="100" min="0" name="lowprice" value="<?php echo $gameLowprice; ?>" />
+            <input type="text" name="lowprice" value="<?php echo $gameLowprice; ?>" />
             <br /><br />
             <label>Comment:</label>            
             <input type="text" name="gamecomment" value="<?php echo $gameComment; ?>" placeholder="" />
@@ -83,7 +83,7 @@
             } else {
                 echo '<table border="1" cellpadding="5"><tr><th>Game</th><th>Game Type</th><th>High price</th><th>Low price</th><th>Comment</th><th>Last updated</th><th>Logged</th><th>Active</th><th></th><th></th></tr>'; 
                  foreach ($scope->view['games'] as $value) {
-                    echo '<tr><td>',$value->getGame(),'</td><td>',$value->getGametype(),'</td><td>',$value->getGameHighprice(),'</td><td>',$value->getGameLowprice(),'</td><td>',$value->getGameComment(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
+                    echo '<tr><td>',$value->getGame(),'</td><td>',$value->getGametype(),'</td><td>',$value->getGamehighprice(),'</td><td>',$value->getGamelowprice(),'</td><td>',$value->getGamecomment(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
                     echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
                      echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>';
                     echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td>';

@@ -4,10 +4,8 @@ namespace APP\controller;
 
 use App\models\interfaces\IService;
 
-class BaseController {
-    
+class BaseController {  
     protected $data = array();
-    
     protected function view($page, IService $scope) {
 
         $folder = "mvc".DIRECTORY_SEPARATOR."views";
