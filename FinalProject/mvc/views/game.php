@@ -92,10 +92,10 @@
                 }
                 echo '</table>';
             }
+            
            
-           
-
          ?>
+         <a href="gametype">Game type</a>
             
     </body>
 </html>

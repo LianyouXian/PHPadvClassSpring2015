@@ -63,6 +63,6 @@
          
          
          ?>
-         
+         <a href="game"> redirect to add game</a>
     </body>
 </html>
