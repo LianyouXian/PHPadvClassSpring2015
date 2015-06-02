@@ -26,7 +26,7 @@
             $gameComment = $scope->view['model']->getGamecomment();
         ?>
         
-        <h3>Add game</h3>
+        <h3>update game</h3>
         <form action="#" method="post">
             <label>Game:</label>            
             <input type="text" name="game" value="<?php echo $game; ?>" placeholder="" />
@@ -81,12 +81,12 @@
         
          <?php 
          
-          if ( count($scope->view['games']) <= 0 ) {
+         if ( count($scope->view['games']) <= 0 ) {
                 echo '<p>No Data</p>';
             } else {
-                echo '<table border="1" cellpadding="5"><tr><th>Game</th><th>Game Type</th><th>Last updated</th><th>Logged</th><th>Active</th><th></th><th></th></tr>'; 
+                echo '<table border="1" cellpadding="5"><tr><th>Game</th><th>Game Type</th><th>High price</th><th>Low price</th><th>Comment</th><th>Last updated</th><th>Logged</th><th>Active</th><th></th><th></th></tr>'; 
                  foreach ($scope->view['games'] as $value) {
-                    echo '<tr><td>',$value->getGame(),'</td><td>',$value->getGametype(),'</td><td>',$value->getGameHighprice(),'</td><td>',$value->getGameLowprice(),'</td><td>',$value->getGameComment(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
+                    echo '<tr><td>',$value->getGame(),'</td><td>',$value->getGametype(),'</td><td>',$value->getGamehighprice(),'</td><td>',$value->getGamelowprice(),'</td><td>',$value->getGamecomment(),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLastupdated())),'</td><td>',date("F j, Y g:i(s) a", strtotime($value->getLogged())),'</td>';
                     echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
                      echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>';
                     echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td>';
@@ -95,10 +95,6 @@
                 }
                 echo '</table>';
             }
-           
-           
-
-         ?>
             
     </body>
 </html>
