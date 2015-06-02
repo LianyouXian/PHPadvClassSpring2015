@@ -87,13 +87,13 @@ class GameService implements IService {
             $errors[] = 'Game active is invalid';
         }
         
-        /*if ( !$this->getValidator()->gamehighpriceIsValid($model->getGamehighprice()) ) {
+        if ( !$this->getValidator()->gamehighpriceIsValid($model->getGamehighprice()) ) {
             $errors[] = 'high price is invalid';
         }
         
         if ( !$this->getValidator()->gamelowpriceIsValid($model->getGamelowprice()) ) {
             $errors[] = 'low price is invalid';
-        }*/
+        }
             
         return $errors;
     }

@@ -34,14 +34,16 @@ class GameDAO extends BaseDAO implements IDAO {
          
          $db = $this->getDB();
          
-         $stmt = $db->prepare("SELECT game.gameid, game.game, game.gametypeid, gametype.gametype,game.gamehighprice, game.gamelowprice,game.comment, gametype.active as gametypeactive, game.logged, game.lastupdated, game.active"
+         $stmt = $db->prepare("SELECT game.gameid, game.game, game.gametypeid, gametype.gametype,game.gamehighprice, game.gamelowprice,game.gamecomment, gametype.active as gametypeactive, game.logged, game.lastupdated, game.active"
                  . " FROM game LEFT JOIN gametype on game.gametypeid = gametype.gametypeid WHERE gameid = :gameid");
-         
+
         if ( $stmt->execute(array(':gameid' => $id)) && $stmt->rowCount() > 0 ) {
              $results = $stmt->fetch(PDO::FETCH_ASSOC);
              $model->map($results);
+             
         }       
         return $model;  
+
     }
     
     
@@ -49,7 +51,8 @@ class GameDAO extends BaseDAO implements IDAO {
                  
          $db = $this->getDB();
          
-         $binds = array( ":game" => $model->getGame(),
+         $binds = array(
+                         ":game" => $model->getGame(),
                          ":active" => $model->getActive(),
                          ":gametypeid" => $model->getGametypeid(),
                          ":gamehighprice" =>$model->getGamehighprice(),
@@ -84,10 +87,9 @@ class GameDAO extends BaseDAO implements IDAO {
                         ":gamecomment" =>$model->getGamecomment()
                     );
          
-                
          if ( $this->idExisit($model->getGameid()) ) {
-            
-             $stmt = $db->prepare("UPDATE game SET game = :game, gametypeid = :gametypeid, gamehighprice = :gamehighprice, gamelowprice = :gamelowprice, gamecomment = :gamecomment,  active = :active, lastupdated = now() WHERE gameid = :gameid");
+
+             $stmt = $db->prepare("UPDATE game SET game = :game, gametypeid = :gametypeid, gamehighprice = :gamehighprice, gamelowprice = :gamelowprice, gamecomment = :gamecomment,  active = :active, logged = now(), lastupdated = now() WHERE gameid = :gameid");
          
              if ( $stmt->execute($binds) && $stmt->rowCount() > 0 ) {
                 return true;
@@ -120,9 +122,8 @@ class GameDAO extends BaseDAO implements IDAO {
        $db = $this->getDB();
        $values = array();
        
-        $stmt = $db->prepare("SELECT game.gameid,game.game, game.gametypeid, gametype.gametype, game.gamehighprice, game.gamelowprice, game.gamecomment, gametype.active as gametypeactive, game.logged, game.lastupdated, game.active"
+        $stmt = $db->prepare("SELECT game.gameid, game.game, game.gametypeid, gametype.gametype, game.gamehighprice, game.gamelowprice, game.gamecomment, gametype.active as gametypeactive, game.logged, game.lastupdated, game.active"
                  . " FROM game LEFT JOIN gametype on game.gametypeid = gametype.gametypeid");
-        
         if ( $stmt->execute() && $stmt->rowCount() > 0 ) {
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 

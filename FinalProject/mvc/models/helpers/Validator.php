@@ -29,13 +29,13 @@ class Validator implements IService {
         return (!empty($type));
     }
     
-    /*public function gamehighpriceIsValid($gamehighprice){
+    public function gamehighpriceIsValid($gamehighprice){
         return (!empty($gamehighprice) && is_numeric($gamehighprice));
     }
     
     public function gamelowpriceIsValid($gamelowprice){
         return (!empty($gamelowprice) && is_numeric($gamelowprice));
-    }*/
+    }
 
     /**
      * A method to check if a phone number is valid.

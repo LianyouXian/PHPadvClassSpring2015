@@ -52,9 +52,9 @@
             </select>
             <br /><br />
             <label>High price:</label>
-            <input type="text" name="highprice" value="<?php echo $gameHighprice; ?>" />
+            <input type="text" name="gamehighprice" value="<?php echo $gameHighprice; ?>" />
             <label>Low price:</label>
-            <input type="text" name="lowprice" value="<?php echo $gameLowprice; ?>" />
+            <input type="text" name="gamelowprice" value="<?php echo $gameLowprice; ?>" />
             <br /><br />
             <label>Comment:</label>            
             <input type="text" name="gamecomment" value="<?php echo $gameComment; ?>" placeholder="" />
@@ -87,7 +87,6 @@
                     echo  '<td>', ( $value->getActive() == 1 ? 'Yes' : 'No') ,'</td>';
                      echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="edit" /><input type="submit" value="EDIT" /> </form></td>';
                     echo '<td><form action="#" method="post"><input type="hidden"  name="gameid" value="',$value->getGameid(),'" /><input type="hidden" name="action" value="delete" /><input type="submit" value="DELETE" /> </form></td>';
-               
                     echo '</tr>' ;
                 }
                 echo '</table>';
