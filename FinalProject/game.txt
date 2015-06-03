@@ -1,0 +1,80 @@
+-- phpMyAdmin SQL Dump
+-- version 4.2.11
+-- http://www.phpmyadmin.net
+--
+-- Host: 127.0.0.1
+-- Generation Time: Jun 03, 2015 at 02:21 AM
+-- Server version: 5.6.21
+-- PHP Version: 5.6.3
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+
+--
+-- Database: `phpadvclassspring2015`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `game`
+--
+
+CREATE TABLE IF NOT EXISTS `game` (
+`gameid` int(10) unsigned NOT NULL,
+  `game` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `gametypeid` tinyint(3) unsigned DEFAULT NULL,
+  `gamehighprice` double DEFAULT NULL,
+  `gamelowprice` double DEFAULT NULL,
+  `gamecomment` text COLLATE utf8_unicode_ci,
+  `logged` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `lastupdated` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `active` tinyint(1) unsigned NOT NULL DEFAULT '1'
+) ENGINE=InnoDB AUTO_INCREMENT=34 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `game`
+--
+
+INSERT INTO `game` (`gameid`, `game`, `gametypeid`, `gamehighprice`, `gamelowprice`, `gamecomment`, `logged`, `lastupdated`, `active`) VALUES
+(25, 'Final fantasy X', 3, 34.99, 2.99, 'awesome', '2015-06-02 19:46:07', '2015-06-02 19:46:07', 1),
+(33, 'Final fantasy 15', 3, 49.99, 12.49, 'ultimate', '2015-06-02 20:15:24', '2015-06-02 20:15:24', 1);
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `game`
+--
+ALTER TABLE `game`
+ ADD PRIMARY KEY (`gameid`), ADD UNIQUE KEY `game` (`game`), ADD KEY `gametypeid` (`gametypeid`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `game`
+--
+ALTER TABLE `game`
+MODIFY `gameid` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=34;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `game`
+--
+ALTER TABLE `game`
+ADD CONSTRAINT `game_ibfk_1` FOREIGN KEY (`gametypeid`) REFERENCES `gametype` (`gametypeid`);
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
