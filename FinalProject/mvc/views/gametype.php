@@ -5,8 +5,8 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
-        
+    <body style="background-image: url(https://squareportal.files.wordpress.com/2014/09/finalfantasyxv2wallpaper.jpg)">
+    <center>
         <?php
         // put your code here
         
@@ -73,5 +73,6 @@
          
          ?>
          <a href="game"> redirect to add game</a>
+    </center>
     </body>
 </html>

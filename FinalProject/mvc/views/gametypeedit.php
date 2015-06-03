@@ -4,8 +4,8 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
-        
+    <body style=" background-image: url(http://cdn.wallwuzz.com/uploads/final-fantasy-background-wallpapers-array-wallwuzz-hd-wallpaper-5217.jpg)">
+    <center>
         <?php
             
         
@@ -64,5 +64,6 @@
          
          ?>
          <a href="game"> redirect to add game</a>
+    </center>
     </body>
 </html>

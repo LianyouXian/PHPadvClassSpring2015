@@ -4,7 +4,8 @@
         <meta charset="UTF-8">
         <title></title>
     </head>
-    <body>
+    <body style="background-color: lightcyan">
+    <center>
         <?php
         // put your code here
         
@@ -54,6 +55,7 @@
             <label>Active:</label>
             <input type="number" max="1" min="0" name="active" value="<?php echo $active; ?>" />
             <br /><br />
+            <input type="hidden" name="gameid" value="<?php echo $gameid; ?>"/>
             <input type="hidden" name="action" value="update" />
             <input type="submit" value="Submit" />
         </form>
@@ -84,5 +86,6 @@
            
          ?>
          <a href="gametype">Game type</a>
+    </center>
     </body>
 </html>

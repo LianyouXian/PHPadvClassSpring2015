@@ -3,8 +3,10 @@
     <head>
         <meta charset="UTF-8">
         <title></title>
+
     </head>
-    <body>
+    <body style="background-color: lightcyan">
+    <center>
         <?php
         // put your code here
                 
@@ -34,7 +36,7 @@
         ?>
         
         <h3>Add game</h3>
-        <form action="#" method="post">
+        <form action="#" method="post" >
             <label>Game:</label>            
             <input type="text" name="game" value="<?php echo $game; ?>" placeholder="" />
             <br /><br />
@@ -71,10 +73,7 @@
          <br />
          <br />
          
-        <form action="#" method="post">
-            <input type="hidden" name="action" value="add" />
-            <input type="submit" value="ADD Page" /> 
-        </form>
+
         
          <?php 
          
@@ -95,6 +94,6 @@
            
          ?>
          <a href="gametype">Game type</a>
-            
+    </center>
     </body>
 </html>
