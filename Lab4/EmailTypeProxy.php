@@ -28,7 +28,7 @@
         <br />
         <br />
         Resource for endpoint:<br />
-        <input name="resource" value="emails/" />
+        <input name="resource" value="emailtypes/" />
          <br />
         <br />
         Data(optional):<br />        
