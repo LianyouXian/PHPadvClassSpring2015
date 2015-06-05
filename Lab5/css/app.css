@@ -1,5 +1,8 @@
 /* app css stylesheet */
-
+body{
+    background-image: url(http://cartoonsimages.com/sites/default/files/field/image/Happy-Feet1_0.jpg);
+    
+}
 
 h1 {
     background-color: #EEE;
