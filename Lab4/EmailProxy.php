@@ -16,7 +16,7 @@
             }
         </style>
         
-        <h1>Rest API Demo</h1>
+        <h1>Rest API Email</h1>
         
         Verb/HTTP Method:<br />
         <select name="verb">
@@ -32,7 +32,7 @@
          <br />
         <br />
         Data(optional):<br />        
-        <textarea name="data">email=lianyouxian@art.com&emailid=4&Active=1</textarea>
+        <textarea name="data">email=lianyouxian@art.com&emailtypeid=21&Active=1</textarea>
         <br />
         <br />
         <button>Make Call</button>
@@ -79,5 +79,7 @@
                 }
             }
         </script>
+        <br />
+        <a href="EmailTypeProxy.php">Emailtype Proxy</a>
     </body>
 </html>

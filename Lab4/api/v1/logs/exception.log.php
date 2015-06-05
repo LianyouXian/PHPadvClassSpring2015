@@ -13,3 +13,6 @@
 [5540078a84be0]	[exception]	[04-29-2015 12:19am]	Invalid credentials
 [55400ce778084]	[exception]	[04-29-2015 12:42am]	New Phone Type Not Created
 [55400f32794d4]	[exception]	[04-29-2015 12:52am]	Invalid credentials
+[55711324d6383]	[exception]	[06-05-2015 5:10am]	New Email Not Created
+[55711330af4ec]	[exception]	[06-05-2015 5:10am]	New Email Not Created
+[55711340eaacb]	[exception]	[06-05-2015 5:10am]	New Email Not Created

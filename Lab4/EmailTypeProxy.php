@@ -79,5 +79,7 @@
                 }
             }
         </script>
+        <br/>
+        <a href="EmailProxy.php">Email Proxy</a>
     </body>
 </html>
